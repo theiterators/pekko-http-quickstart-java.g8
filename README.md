@@ -15,7 +15,7 @@ sbt -Dsbt.version=1.4.5 new akka/akka-http-java-seed.g8
  ```
 
 This template will prompt for the following parameters. Press `Enter` if the default values suit you:
-- `name`: Becomes the name of thre project.
+- `name`: Becomes the name of the project.
 - `organisation`: Provides an organisation name for the project.
 - `akka-http-version`: Specifies which version of Akka HTTP should be used for this project.
 - `akka-version`: Specifies which version of Akka should be used for this project.
@@ -37,7 +37,7 @@ or
 ```
 gradle run
 ```
-Both commands run `com.lightbend.akka.http.sample.QuickstartServer` by default.
+All three commands run `com.lightbend.akka.http.sample.QuickstartServer` by default.
 
 
 Template license
