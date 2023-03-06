@@ -7,19 +7,17 @@ This separation, other than being a good idea on its own, was all for this momen
 
 ## Unit testing routes
 
-There are multiple ways one can test an HTTP application of course, but lets start at the simplest and also quickest way: unit testing. In this style of testing, we won't even need to spin up an actual server - all the tests will be executed on the routes directly - without the need of hitting actual network. This is due to Akka HTTP's pure design and separation between the network layer (represented as a bi-directional `Flow` of byte strings to Http domain objects).
+There are multiple ways one can test an HTTP application of course, but let's start at the simplest and also the quickest way: unit testing. In this style of testing, we won't even need to spin up an actual server - all the tests will be executed on the routes directly - without the need of hitting actual network. This is due to Pekko HTTP's pure design and separation between the network layer (represented as a bidirectional `Flow` of byte strings to Http domain objects).
 
-In other words, unit testing in Akka HTTP is simply "executing" the routes by passing in an `HttpResponse` to the route, and later inspecting what `HttpResponse` (or `rejection` if the request could not be handled) it resulted in. All this in-memory, without having to start a real HTTP server - which gives us supreme speed and turn-over time when developing an application using Akka.
+In other words, unit testing in Pekko HTTP is simply "executing" the routes by passing in an `HttpResponse` to the route, and later inspecting what `HttpResponse` (or `rejection` if the request could not be handled) it resulted in. All this in-memory, without having to start a real HTTP server - which gives us supreme speed and turn-over time when developing an application using Pekko.
 
 First we'll need to extend a number of base traits:
 
 @@snip [QuickstartServer.java]($g8srctest$/java/$package$/UserRoutesTest.java) { #test-top }
 
-Here we're using `JUnitRouteTest` which provides ability to test akka-http routes. 
+Here we're using `JUnitRouteTest` which provides ability to test pekko-http routes.
 
-Next, we'll need to bring into the test class our routes that we want to test. We're doing this by wrapping put rout 
-into `TestRoute` by using `testRoute(server.createRoute())` to be able to provide request parameters to emulate HTTP call 
-and then assert results. You can assert HTML body or header values as well as response code itself.
+Next, we'll need to bring into the test class our routes that we want to test. We're doing this by wrapping put route into `TestRoute` by using `testRoute(server.createRoute())` to be able to provide request parameters to emulate HTTP call and then assert results. You can assert HTML body or header values as well as response code itself.
 
 @@snip [QuickstartServer.java]($g8srctest$/java/$package$/UserRoutesTest.java) { #set-up }
 
@@ -41,29 +39,24 @@ In the next test we'd like test a `POST` endpoint, so we need to send an entity 
 
 @@snip [QuickstartServer.java]($g8srctest$/java/$package$/UserRoutesTest.java) { #testing-post }
 
-### Complete unit unit test code listing
+### Complete unit test code listing
 
 For reference, here's the entire unit test code:
 
 @@snip [QuickstartServer.java]($g8srctest$/java/$package$/UserRoutesTest.java)
 
 
-## A note Integration testing routes
+## A note on testing routes integration
 
-While definitions of "what a pure unit-test is" are sometimes a subject of fierce debates in programming communities,
-we refer to the above testing style as "route unit testing" since it's lightweight and allows to test the routes in
-isolation, especially if their dependencies would be mocked our with test stubs, instead of hitting real APIs.
+While definitions of "what a pure unit-test is" are sometimes a subject of fierce debates in programming communities, we refer to the above testing style as "route unit testing" since it's lightweight and allows to test the routes in isolation, especially if their dependencies would be mocked our with test stubs, instead of hitting real APIs.
 
-Sometimes, however, one wants to test the complete "full application", including starting a real HTTP server
+Sometimes however one wants to test the complete "full application", including starting a real HTTP server
 
 @@@ warning
   
-  Some network specific features like timeouts, behavior of entities (streamed directly from the network, instead of
-  in memory objects like in the unit testing style) may behave differently in the unit-testing style showcased above.
+  Some network specific features like timeouts, behavior of entities (streamed directly from the network, instead of in memory objects like in the unit testing style) may behave differently in the unit-testing style showcased above.
   
-  If you want to test specific timing and entity draining behaviors of your apps you may want to add full integration
-  tests for them. For most routes this should not be needed, however, we'd recommend doing so when using more of
-  the streaming features of Akka HTTP.
+  If you want to test specific timing and entity draining behaviors of your apps you may want to add full integration tests for them. For most routes this should not be needed, however we'd recommend doing so when using more of the streaming features of Pekko HTTP.
   
 @@@
 
@@ -71,3 +64,4 @@ Usually, such tests would be implemented by starting the application the same wa
 in `@BeforeClass` method, then hitting the API with http requests using the HTTP Client and asserting on the responses,
 finally shutting down the server in `@AfterClass` .
 
+Now that you've confirmed all the example functionalities, see how simple it is to integrate the project into an IDE.
