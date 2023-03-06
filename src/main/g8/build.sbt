@@ -1,27 +1,29 @@
-val akkaHttpVersion = "$akka_http_version$"
-val akkaVersion    = "$akka_version$"
+ThisBuild / Compile / run / fork := true
+ThisBuild / Compile / run / outputStrategy := Some(StdoutOutput)
 
-lazy val root = (project in file(".")).
-  settings(
-    inThisBuild(List(
-      organization := "$organization$",
-      scalaVersion := "2.13.1",
-      name := "$name$"
-    )),
-    name := "TestProject",
-    libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-http"            % akkaHttpVersion,
-      "com.typesafe.akka" %% "akka-actor-typed"     % akkaVersion,
-      "com.typesafe.akka" %% "akka-stream"          % akkaVersion,
-      "com.typesafe.akka" %% "akka-http-jackson"    % akkaHttpVersion,
-      "ch.qos.logback"    % "logback-classic"       % "1.2.3",
+resolvers += "Apache Snapshots" at "https://repository.apache.org/content/repositories/snapshots/"
 
-      "com.typesafe.akka" %% "akka-testkit"                 % akkaVersion     % Test,
-      "com.typesafe.akka" %% "akka-http-testkit"            % akkaHttpVersion % Test,
-      "com.typesafe.akka" %% "akka-actor-testkit-typed"     % akkaVersion     % Test,
-      "junit"              % "junit"                        % "4.12"          % Test,
-      "com.novocode"       % "junit-interface"              % "0.10"          % Test
-    ),
-
-    testOptions += Tests.Argument(TestFrameworks.JUnit, "-v")
-  )
+lazy val root = (project in file(".")).settings(
+  inThisBuild(List(organization := "$organization$", scalaVersion := "2.13.10", name := "$name$")),
+  name := "$name$",
+  libraryDependencies ++= {
+    val pekkoV          = "$pekko_version$"
+    val pekkoHttpV      = "$pekko_http_version$"
+    val logbackV        = "1.4.5"
+    val junitV          = "4.13.2"
+    val junitInterfaceV = "0.11"
+    Seq(
+      "org.apache.pekko" %% "pekko-http"                % pekkoHttpV,
+      "org.apache.pekko" %% "pekko-actor-typed"         % pekkoV,
+      "org.apache.pekko" %% "pekko-stream"              % pekkoV,
+      "org.apache.pekko" %% "pekko-http-jackson"        % pekkoHttpV,
+      "ch.qos.logback"    % "logback-classic"           % logbackV,
+      "org.apache.pekko" %% "pekko-testkit"             % pekkoV          % Test,
+      "org.apache.pekko" %% "pekko-http-testkit"        % pekkoHttpV      % Test,
+      "org.apache.pekko" %% "pekko-actor-testkit-typed" % pekkoV          % Test,
+      "junit"             % "junit"                     % junitV          % Test,
+      "com.novocode"      % "junit-interface"           % junitInterfaceV % Test
+    )
+  },
+  testOptions += Tests.Argument(TestFrameworks.JUnit, "-v")
+)

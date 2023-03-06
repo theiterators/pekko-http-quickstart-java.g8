@@ -1,48 +1,65 @@
-## Akka HTTP quickstart in Java
+## Pekko HTTP quickstart in Java
 
-Please see the [quickstart guide](https://developer.lightbend.com/guides/akka-http-quickstart-java/) for a
-walk through the code.
+**This repository is a fork of [akka-http-quickstart-java.g8](https://github.com/akka/akka-http-quickstart-java.g8).**
 
-You can use [Giter8][g8] to create your own project from the quickstart. Or, download and extract the zip file(https://example.lightbend.com/v1/download/akka-quickstart-scala?name=akka-quickstart-scala) to a convenient location.
+Please see the [quickstart guide]() for a walk through the code.
+
+You can use [Giter8][g8] to create your own project from the quickstart. There are two ways you can achieve that:
 
 Prerequisites:
 - JDK 11
 - [sbt][sbt] 1.4.5 or higher ([download here][sbt_download])
+- [Giter8](http://www.foundweekends.org/giter8/setup.html) (the second way only)
 
-Open a console and run the following command to apply this template:
+(Without cloning the repo) open a console and run one of the two following commands:
  ```
-sbt -Dsbt.version=1.4.5 new akka/akka-http-java-seed.g8
+sbt new theiterators/pekko-http-quickstart-java.g8
  ```
+or
+```
+g8 theiterators/pekko-http-quickstart-java.g8
+```
 
 This template will prompt for the following parameters. Press `Enter` if the default values suit you:
 - `name`: Becomes the name of the project.
-- `organisation`: Provides an organisation name for the project.
-- `akka-http-version`: Specifies which version of Akka HTTP should be used for this project.
-- `akka-version`: Specifies which version of Akka should be used for this project.
+- `scala_version`: Specifies the Scala version for this project.
+- `pekko_version`: Specifies which version of Pekko should be used for this project.
+- `pekko_http_version`: Specifies which version of Pekko HTTP should be used for this project.
+- `organization`: Specifies the organization for this project.
 
-This template comes with example for an Akka HTTP server on Java `QuickstartServer`, along with their respective tests.
+The template comes with the following sources:
 
-Once inside the project folder, to run this code, you can following command to run server:
+- `QuickstartApp.java` -- contains the main method which bootstraps the application
+- `UserRoutes.java` -- Pekko HTTP `routes` defining exposed endpoints
+- `UserRegistry.java` -- the actor which handles the registration requests
+
+Once inside the project folder, to run this code:
+
 ```
 sbt run
 ```
 
-This template also provides build descriptors for maven and gradle. You can use any of the following commands to run 
+This template also provides build descriptors for maven and gradle. You can use any of the following commands to run
 the application:
+
 ```
 mvn compile
 mvn exec:java
 ```
+
 or
+
 ```
 gradle run
 ```
-Both commands run `com.lightbend.akka.http.sample.QuickstartServer` by default.
 
+All three commands run `com.example.QuickstartServer` by default.
 
 Template license
 ----------------
 Written in 2017 by Lightbend, Inc.
+
+Migrated to Pekko in 2023 by Iterators sp. z o.o.
 
 To the extent possible under law, the author(s) have dedicated all copyright and related
 and neighboring rights to this template to the public domain worldwide.
