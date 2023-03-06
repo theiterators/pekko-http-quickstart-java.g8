@@ -29,27 +29,30 @@ This template will prompt for the following parameters. Press `Enter` if the def
 The template comes with the following sources:
 
 - `QuickstartApp.scala` -- contains the main method which bootstraps the application
--`UserRoutes.scala` -- Pekko HTTP `routes` defining exposed endpoints
--`UserRegistry.scala` -- the actor which handles the registration requests
--`JsonFormats.scala` -- converts the JSON data from requests into Scala types and from Scala types into JSON responses
+- `UserRoutes.scala` -- Pekko HTTP `routes` defining exposed endpoints
+- `UserRegistry.scala` -- the actor which handles the registration requests
 
-Once inside the project folder, to run this code, you can following command to run server:
+Once inside the project folder, to run this code:
+
 ```
 sbt run
 ```
 
-This template also provides build descriptors for maven and gradle. You can use any of the following commands to run 
+This template also provides build descriptors for maven and gradle. You can use any of the following commands to run
 the application:
+
 ```
 mvn compile
 mvn exec:java
 ```
+
 or
+
 ```
 gradle run
 ```
-All three commands run `com.lightbend.pekko.http.sample.QuickstartServer` by default.
 
+All three commands run `com.lightbend.pekko.http.sample.QuickstartServer` by default.
 
 Template license
 ----------------
