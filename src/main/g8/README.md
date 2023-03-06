@@ -30,7 +30,7 @@ or
 gradle run
 ```
 
-All three commands run `com.lightbend.pekko.http.sample.QuickstartServer` by default.
+All three commands run `com.example.QuickstartServer` by default.
 
 ## Interacting with the sample
 

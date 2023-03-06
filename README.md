@@ -1,7 +1,8 @@
 ## Pekko HTTP quickstart in Java
 
-Please see the [quickstart guide](https://developer.lightbend.com/guides/pekko-http-quickstart-java/) for a
-walk through the code.
+**This repository is a fork of [akka-http-quickstart-java.g8](https://github.com/akka/akka-http-quickstart-java.g8).**
+
+Please see the [quickstart guide]() for a walk through the code.
 
 You can use [Giter8][g8] to create your own project from the quickstart. There are two ways you can achieve that:
 
@@ -52,7 +53,7 @@ or
 gradle run
 ```
 
-All three commands run `com.lightbend.pekko.http.sample.QuickstartServer` by default.
+All three commands run `com.example.QuickstartServer` by default.
 
 Template license
 ----------------
