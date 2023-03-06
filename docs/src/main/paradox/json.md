@@ -1,9 +1,9 @@
 JSON marshalling
 ----------------
 
-When exercising the app, you interacted with JSON payloads. How does the example app convert data between JSON format and data that can be used by Java classes? For this purposes Akka HTTP has `akka.http.javadsl.marshallers.jackson.Jackson`
+When exercising the app, you interacted with JSON payloads. How does the example app convert data between JSON format and data that can be used by Java classes? For these purposes Pekko HTTP has `org.apache.pekko.http.javadsl.marshallers.jackson.Jackson`
 
-We're using the [Jackson](https://github.com/FasterXML/jackson) library here, along with akka-http wrapper that provides marshallers  `Jackson.marshaller()`.
+We're using the [Jackson](https://github.com/FasterXML/jackson) library here, along with pekko-http wrapper that provides marshallers  `Jackson.marshaller()`.
 
 In most cases you'll just need to provide the Jackson marshaller to `complete` call like following `complete(StatusCodes.OK, performed, Jackson.marshaller()` to be able to product JSON response.
 
@@ -13,7 +13,7 @@ in this sample we have instead used immutable messages and domain model classes 
 
 @@snip [UserRegistryActor.java]($g8src$/java/$package$/UserRegistry.java) { #user-case-classes }
 
-While we used Jackson JSON in this example, the API is pluggable and various other libraries can be used. Each library comes with different trade-offs in performance and user-friendlieness. Still Jackson is the default Java marshaller as that is what we expect Java developers to be most familiar with.
+While we used Jackson JSON in this example, the API is pluggable and various other libraries can be used. Each library comes with different trade-offs in performance and user-friendliness. Still Jackson is the default Java marshaller as that is what we expect Java developers to be most familiar with.
 
 Now that we've examined the example app thoroughly, let's test a few remaining use cases.
 

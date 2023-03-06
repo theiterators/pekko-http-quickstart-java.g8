@@ -38,4 +38,4 @@ Alternatively, you can run the project through `sbt` as described in the [index 
 
 ## Tutorial done!
 
-Congratulations! You can start building real-world applications that use Pekko HTTP. Of course, we didn't have time to cover all Pekko HTTP features in this short guide. See the @extref[documentation](pekko.http:scala/http/index.html) to learn more.
+Congratulations! You can start building real-world applications that use Pekko HTTP. Of course, we didn't have time to cover all Pekko HTTP features in this short guide. See the @extref[documentation](pekko.http:java/http/index.html) to learn more.

@@ -4,9 +4,9 @@ This is a sample Pekko HTTP endpoint keeping an in-memory database of users that
 
 Sources in the sample:
 
-* `QuickstartApp.scala` -- contains the main method which bootstraps the application
-* `UserRoutes.scala` -- Pekko HTTP `routes` defining exposed endpoints
-* `UserRegistry.scala` -- the actor which handles the registration requests
+* `QuickstartApp.java` -- contains the main method which bootstraps the application
+* `UserRoutes.java` -- Pekko HTTP `routes` defining exposed endpoints
+* `UserRegistry.java` -- the actor which handles the registration requests
 
 ## Running
 

@@ -12,11 +12,11 @@ Prerequisites:
 
 (Without cloning the repo) open a console and run one of the two following commands:
  ```
-sbt new theiterators/pekko-http-quickstart-scala.g8
+sbt new theiterators/pekko-http-quickstart-java.g8
  ```
 or
 ```
-g8 theiterators/pekko-http-quickstart-scala.g8
+g8 theiterators/pekko-http-quickstart-java.g8
 ```
 
 This template will prompt for the following parameters. Press `Enter` if the default values suit you:
@@ -28,9 +28,9 @@ This template will prompt for the following parameters. Press `Enter` if the def
 
 The template comes with the following sources:
 
-- `QuickstartApp.scala` -- contains the main method which bootstraps the application
-- `UserRoutes.scala` -- Pekko HTTP `routes` defining exposed endpoints
-- `UserRegistry.scala` -- the actor which handles the registration requests
+- `QuickstartApp.java` -- contains the main method which bootstraps the application
+- `UserRoutes.java` -- Pekko HTTP `routes` defining exposed endpoints
+- `UserRegistry.java` -- the actor which handles the registration requests
 
 Once inside the project folder, to run this code:
 

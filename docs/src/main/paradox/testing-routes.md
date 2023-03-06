@@ -22,7 +22,7 @@ Next, we'll need to bring into the test class our routes that we want to test. W
 @@snip [QuickstartServer.java]($g8srctest$/java/$package$/UserRoutesTest.java) { #set-up }
 
 We could create an actor that replies with a mocked response here instead if we wanted to, this is especially useful if
-the route awaits an response from the actor before rendering the `HttpResponse` to the client. 
+the route awaits a response from the actor before rendering the `HttpResponse` to the client. 
 Let's write our first test, in which we'll hit the `/users` endpoint with a `GET` request:
 
 @@snip [QuickstartServer.java]($g8srctest$/java/$package$/UserRoutesTest.java) { #actual-test }

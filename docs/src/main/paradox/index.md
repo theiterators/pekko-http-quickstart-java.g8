@@ -17,7 +17,7 @@ This guide highlights Pekko HTTP fundamentals in the context of a simple user re
 
 Having a basic understanding of Pekko Actors will make it easier to understand the example. If you are new to Pekko, we recommend referring to the [Pekko Introduction](https://pekko.apache.org/docs/pekko/current//typed/guide/introduction.html) guide before this tutorial.
 
-You can run the Pekko HTTP example project on Linux, MacOS, or Windows. The only prerequisite is Java 8.
+You can run the Pekko HTTP example project on Linux, macOS, or Windows. The only prerequisite is Java 8.
 
 ## Downloading the example
 
@@ -31,11 +31,11 @@ Prerequisites:
 
 (Without cloning the repo) open a console and run one of the following two commands:
  ```
-sbt new theiterators/pekko-http-quickstart-scala.g8
+sbt new theiterators/pekko-http-quickstart-java.g8
  ```
 or
 ```
-g8 theiterators/pekko-http-quickstart-scala.g8
+g8 theiterators/pekko-http-quickstart-java.g8
 ```
 
 This template will prompt for the following parameters. Press `Enter` if the default values suit you:
@@ -63,7 +63,7 @@ When you run sbt, it downloads project dependencies. The `>` prompt indicates th
 
 At the sbt prompt, enter `reStart`.
 
-sbt builds the project, starts an Pekko HTTP server, and runs the example application.
+sbt builds the project, starts a Pekko HTTP server, and runs the example application.
 
 The output should look something like this:
 
